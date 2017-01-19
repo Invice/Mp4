@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Raumplaner</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="main_menu">Hauptmenü</string>
+    <string name="room_search">Raumsuche</string>
+    <string name="place_search">Platzsuche</string>
+    <string name="fast_search">Schnellsuche</string>
+    <string name="favourites">Favoriten</string>
+    <string name="preferences">Optionen</string>
+    <string name="title_activity_options">Optionen</string>
+
+
+
+    <string name="address">Adresse/Raumname</string>
+    <string name="resources">Ressourcen</string>
+    <string name="institution">Fach/Fakultät</string>
+
+
+    <string name="power">Strom</string>
+    <string name="computer">Rechnerzugang</string>
+    <string name="board">Tafel/Whiteboard</string>
+    <string name="wifi">Wifi</string>
+    <string name="locker">Spind</string>
+    <string name="first_aid">Erste Hilfe</string>
+    <string name="toilet">WC</string>
+    <string name="seat">Sitzplatz</string>
+
+    <string name="searched">Sie haben gesucht nach: </string>
+
+
+
+    <string-array name="institutions">
+        <item>Technische Fakultät</item>
+        <item>Philosophische Fakultät</item>
+        <item>Naturwissenschaftliche Fakultät</item>
+        <item>Witschaftliche Fakultät</item>
+    </string-array>
+    <string name="title_activity_room_search">RoomSearch</string>
+
+
+
+
+</resources>
