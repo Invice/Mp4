@@ -7,12 +7,12 @@
 
     <string name="main_menu">Hauptmenü</string>
     <string name="room_search">Raumsuche</string>
-    <string name="place_search">Platzsuche</string>
+    <string name="place_search">Arbeitsraum</string>
     <string name="fast_search">Schnellsuche</string>
     <string name="favourites">Favoriten</string>
-    <string name="preferences">Optionen</string>
+    <string name="preferences">Suchoptionen</string>
     <string name="title_activity_options">Optionen</string>
-
+    <string name="ok">OK</string>
 
 
     <string name="address">Adresse/Raumname</string>
@@ -30,16 +30,31 @@
     <string name="seat">Sitzplatz</string>
 
     <string name="searched">Sie haben gesucht nach: </string>
-
+    <string name="suggestions">Wir haben folgende Räume für Sie gefunden:</string>
 
 
     <string-array name="institutions">
         <item>Technische Fakultät</item>
         <item>Philosophische Fakultät</item>
-        <item>Naturwissenschaftliche Fakultät</item>
-        <item>Witschaftliche Fakultät</item>
+        <item>Theologische Fakultät</item>
+        <item>Mathematisch-Naturwissenschaftliche Fakultät</item>
+        <item>Witschafts- und Sozialwissenschaftliche Fakultät</item>
+        <item>Rechtswissenschaftliche Fakultät</item>
+        <item>Medizinische Fakultät</item>
+        <item>Agrar- und Ernährungswissenschaftliche Fakultät</item>
     </string-array>
+
+    <string-array name="rooms">
+        <item>CAP4, R.709</item>
+        <item>CAP3, 1.OG</item>
+        <item>HRS3, Grundausbildungspool</item>
+        <item>OS75, R.506 (Seminar 1)</item>
+        <item>OS75, R.514 (Belegt)</item>
+    </string-array>
+
     <string name="title_activity_room_search">RoomSearch</string>
+    <string name="title_activity_place_search">PlaceSearch</string>
+    <string name="title_activity_map">map</string>
 
 
 
