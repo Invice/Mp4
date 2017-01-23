@@ -14,11 +14,13 @@ public class RegisteredRooms {
 
     public RegisteredRooms(){
         registeredRooms.add(new Room("Hebbel Hörsaal", "OS40, R.104"));
-        registeredRooms.add((new Room("Belegt", "CAP4, R.709")).increaseVisitCount()
+        registeredRooms.add((new Room("", "CAP4, R.709")).increaseVisitCount()
                 .addOption(new Option("power")).addOption(new Option("seat"))
-                .addOption(new Option("computer")).addOption(new Option("wifi")));
-        registeredRooms.add(new Room("Belegt", "CAP3, 1.OG").addOption(new Option("power"))
-                .addOption(new Option("wifi")).addOption(new Option("seat")));
+                .addOption(new Option("computer")).addOption(new Option("wifi"))
+                .appendDescription("\n\nDer Raum hat keine Tafel."));
+        registeredRooms.add(new Room("Foyer", "CAP3, 1.OG").addOption(new Option("power"))
+                .addOption(new Option("wifi")).addOption(new Option("seat"))
+                .appendDescription("\n\n Der Raum hat keine Tafel und keinen Rechnerzugang."));
         registeredRooms.add(new Room("Grundausbildungspool", "HRS3, R.012").increaseVisitCount());
 
         ArrayList<Option> ops = new ArrayList<>();

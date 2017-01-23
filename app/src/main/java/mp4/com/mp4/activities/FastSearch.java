@@ -9,45 +9,35 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mp4.com.mp4.applications.AppContainer;
-import mp4.com.mp4.applications.SelectedOptions;
 import mp4.com.mp4.R;
+import mp4.com.mp4.applications.AppContainer;
 import mp4.com.mp4.classes.Room;
 
-public class RoomSearch extends AppCompatActivity {
+public class FastSearch extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_room_search);
+        setContentView(R.layout.activity_fast_search);
 
-        final AppContainer appCon = ((AppContainer)getApplicationContext());
+        final AppContainer appCon = (AppContainer) getApplicationContext();
+        final ListView roomSuggestion = (ListView) findViewById(R.id.fastRooms);
 
-        TextView searched = (TextView) findViewById(R.id.txt_searched);
-        final ListView roomSuggestion = (ListView) findViewById(R.id.preferedRooms);
-
-        searched.setText(appCon.getSelectedOptions().getAddress());
 
         List<String> prefRooms = new ArrayList<>();
 
         Room room = appCon.getRegisteredRooms()
-                .getRoomByName(appCon.getSelectedOptions().getAddress());
-
-        if (!room.getAddress().equals("null")) {
-            prefRooms.add(room.roomToString());
-        }
-
+                .getRoomByName("Grundausbildungspool");
+        prefRooms.add(room.roomToString());
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>
                 (this, android.R.layout.simple_expandable_list_item_1, prefRooms);
 
         roomSuggestion.setAdapter(adapter);
-
         roomSuggestion.setClickable(true);
         roomSuggestion.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
@@ -56,16 +46,15 @@ public class RoomSearch extends AppCompatActivity {
                 String str = (String) o;//As you are using Default String Adapter
                 Room room = appCon.getRegisteredRooms().getRoomByName(str).increaseVisitCount();
                 appCon.getSelectedOptions().setSelectedRoom(room);
-                startActivity(new Intent(RoomSearch.this, RoomDescription.class));
+                startActivity(new Intent(FastSearch.this, RoomDescription.class));
             }
         });
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_room_search, menu);
+        getMenuInflater().inflate(R.menu.menu_fast_search, menu);
         return true;
     }
 

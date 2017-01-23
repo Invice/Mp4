@@ -37,6 +37,10 @@
             android:name=".activities.RoomDescription"
             android:label="@string/title_activity_room_description" >
         </activity>
+        <activity
+            android:name=".activities.FastSearch"
+            android:label="@string/title_activity_fast_search" >
+        </activity>
     </application>
 
 </manifest>

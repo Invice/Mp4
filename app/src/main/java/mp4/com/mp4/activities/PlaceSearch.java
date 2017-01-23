@@ -84,6 +84,19 @@ public class PlaceSearch extends AppCompatActivity {
                 }
             }
 
+            prefRooms.setClickable(true);
+            prefRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    Object o = prefRooms.getItemAtPosition(position);
+                    String str = (String) o;//As you are using Default String Adapter
+                    Room room = appCon.getRegisteredRooms().getRoomByName(str).increaseVisitCount();
+                    appCon.getSelectedOptions().setSelectedRoom(room);
+                    startActivity(new Intent(PlaceSearch.this, RoomDescription.class));
+                }
+            });
+
+
         } else {
             roomList.add("Bitte wähle entsprechende Parameter in den Suchoptionen aus.");
             place_txt_1.setVisibility(View.GONE);
@@ -94,17 +107,7 @@ public class PlaceSearch extends AppCompatActivity {
                 (this, android.R.layout.simple_expandable_list_item_1, roomList);
 
         prefRooms.setAdapter(roomAdapter);
-        prefRooms.setClickable(true);
-        prefRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Object o = prefRooms.getItemAtPosition(position);
-                String str = (String) o;//As you are using Default String Adapter
-                Room room = appCon.getRegisteredRooms().getRoomByName(str).increaseVisitCount();
-                appCon.getSelectedOptions().setSelectedRoom(room);
-                startActivity(new Intent(PlaceSearch.this, RoomDescription.class));
-            }
-        });
+
 
     }
 

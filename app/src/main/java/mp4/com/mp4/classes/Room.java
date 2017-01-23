@@ -39,6 +39,11 @@ public class Room {
         return this.default_room;
     }
 
+    public Room setToDefault(){
+        this.default_room = true;
+        return this;
+    }
+
     public String getName(){
         return this.name;
     }
@@ -73,6 +78,11 @@ public class Room {
 
     public Room addOption(Option option){
         availableResources.add(option);
+        return this;
+    }
+
+    public Room appendDescription (String description){
+        this.description = this.description + description;
         return this;
     }
 

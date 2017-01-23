@@ -30,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         final AppContainer appCon = ((AppContainer)getApplicationContext());
 
-        //Button options = (Button) findViewById(R.id.btn_options);
+        Button fast_search = (Button) findViewById(R.id.btn_fastSearch);
         Button room = (Button) findViewById(R.id.btn_roomSearch);
         Button place = (Button) findViewById(R.id.btn_placeSearch);
+
         final ListView favos = (ListView) findViewById(R.id.favList);
 
 
@@ -52,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        fast_search.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FastSearch.class));
+            }
+        });
 
 
         List<String> favs = new ArrayList<>();
