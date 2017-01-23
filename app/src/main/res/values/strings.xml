@@ -55,6 +55,7 @@
     <string name="title_activity_room_search">RoomSearch</string>
     <string name="title_activity_place_search">PlaceSearch</string>
     <string name="title_activity_map">map</string>
+    <string name="title_activity_room_description">RoomDescription</string>
 
 
 

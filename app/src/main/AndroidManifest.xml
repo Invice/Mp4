@@ -33,6 +33,10 @@
             android:name=".activities.Map"
             android:label="@string/title_activity_map" >
         </activity>
+        <activity
+            android:name=".RoomDescription"
+            android:label="@string/title_activity_room_description" >
+        </activity>
     </application>
 
 </manifest>
