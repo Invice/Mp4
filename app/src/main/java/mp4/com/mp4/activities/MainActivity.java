@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //Button options = (Button) findViewById(R.id.btn_options);
         Button room = (Button) findViewById(R.id.btn_roomSearch);
         Button place = (Button) findViewById(R.id.btn_placeSearch);
-        ListView favos = (ListView) findViewById(R.id.favList);
+        final ListView favos = (ListView) findViewById(R.id.favList);
 
 
         final EditText adText = (EditText) findViewById(R.id.txt_roomSearch);
@@ -63,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
                 (this, android.R.layout.simple_expandable_list_item_1, favs);
 
         favos.setAdapter(adapter);
+
+        favos.setClickable(true);
+        favos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Object o = favos.getItemAtPosition(position);
+                String str = (String) o;//As you are using Default String Adapter
+                Room room = appCon.getRegisteredRooms().getRoomByName(str).increaseVisitCount();
+                appCon.getSelectedOptions().setSelectedRoom(room);
+                startActivity(new Intent(MainActivity.this, RoomDescription.class));
+            }
+        });
 
     }
 
