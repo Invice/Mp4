@@ -7,12 +7,12 @@
 
     <string name="main_menu">Hauptmenü</string>
     <string name="room_search">Raumsuche</string>
-    <string name="place_search">Arbeitsraum</string>
+    <string name="place_search">Arbeitplatzsuche</string>
     <string name="fast_search">Schnellsuche</string>
     <string name="favourites">Favoriten</string>
-    <string name="preferences">Suchoptionen</string>
+    <string name="preferences">Suchoptionen ändern</string>
     <string name="title_activity_options">Optionen</string>
-    <string name="ok">OK</string>
+    <string name="ok">Auswahl bestätigen</string>
 
 
     <string name="address">Adresse/Raumname</string>
