@@ -18,7 +18,8 @@
     <TextView
         android:text="@string/searched"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_place1"/>
 
     <ListView
         android:layout_width="wrap_content"
@@ -28,7 +29,8 @@
     <TextView
         android:text="@string/suggestions"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_place2"/>
 
     <ListView
         android:layout_width="match_parent"

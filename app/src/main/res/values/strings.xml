@@ -13,6 +13,7 @@
     <string name="preferences">Suchoptionen ändern</string>
     <string name="title_activity_options">Optionen</string>
     <string name="ok">Auswahl bestätigen</string>
+    <string name="continue_to_map">Fortfahren zur Karte</string>
 
 
     <string name="address">Adresse/Raumname</string>

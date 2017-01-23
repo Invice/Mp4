@@ -1,9 +1,17 @@
-package mp4.com.mp4;
+package mp4.com.mp4.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import mp4.com.mp4.R;
+import mp4.com.mp4.applications.AppContainer;
+import mp4.com.mp4.applications.SelectedOptions;
 
 public class RoomDescription extends AppCompatActivity {
 
@@ -11,6 +19,25 @@ public class RoomDescription extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_description);
+        AppContainer appCon = (AppContainer) getApplicationContext();
+
+        TextView descr_txt = (TextView) findViewById(R.id.txt_room_descriptor);
+        Button continue_to_map = (Button) findViewById(R.id.btn_continue_to_map);
+
+        descr_txt.setText(appCon.getSelectedOptions().
+                getSelectedRoom().getDescription());
+
+
+
+        continue_to_map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(RoomDescription.this, Map.class));
+            }
+        });
+
+        if (appCon.getSelectedOptions().getSelectedRoom().isDefault_room()){
+            continue_to_map.setVisibility(View.GONE);
+        }
     }
 
     @Override

@@ -34,7 +34,7 @@
             android:label="@string/title_activity_map" >
         </activity>
         <activity
-            android:name=".RoomDescription"
+            android:name=".activities.RoomDescription"
             android:label="@string/title_activity_room_description" >
         </activity>
     </application>

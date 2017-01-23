@@ -23,6 +23,16 @@ public class SelectedOptions {
     private Option first_aid = new Option("first_aid");
     private Option toilet = new Option("toilet");
 
+    public Room getSelectedRoom() {
+        return selectedRoom;
+    }
+
+    public void setSelectedRoom(Room selectedRoom) {
+        this.selectedRoom = selectedRoom;
+    }
+
+    private Room selectedRoom = new Room("null", "null");
+
     public List<Option> options = new ArrayList<>();
     public List<Room> rooms = new ArrayList<>();
 

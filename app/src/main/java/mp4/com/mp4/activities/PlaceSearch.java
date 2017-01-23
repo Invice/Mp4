@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -35,7 +36,8 @@ public class PlaceSearch extends AppCompatActivity {
         ListView optionList = (ListView) findViewById(R.id.listView);
         final ListView prefRooms = (ListView) findViewById(R.id.prefRooms);
         Button search_param = (Button) findViewById(R.id.btn_search_param);
-
+        TextView place_txt_1 = (TextView) findViewById(R.id.txt_place1);
+        TextView place_txt_2 = (TextView) findViewById(R.id.txt_place2);
 
         search_param.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -53,34 +55,39 @@ public class PlaceSearch extends AppCompatActivity {
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>
-                (this, android.R.layout.simple_expandable_list_item_1, items);
+                (this, R.layout.list_text_view, items);
 
         optionList.setAdapter(adapter);
 
-
-
-
-        //Initialisiere Vorschläge
-        List<Option> selOps = appCon.getSelectedOptions().getOptions();
         int selOpNum = appCon.getSelectedOptions().getSelOpNum();
-
         List<String> roomList = new ArrayList<>();
 
-        for (Room room : appCon.getRegisteredRooms().getRooms()){
-            int i = 0;
-            if (room.getAvailableResources().size() > 0 && selOpNum > 0) {
-                for (Option roomOp : room.getAvailableResources()){
-                    for (Option selOp : selOps){
-                        if (roomOp.getName().equals(selOp.getName()) && selOp.isState()){
-                            i++;
+
+        if ( selOpNum > 0) {
+            //Initialisiere Vorschläge
+            List<Option> selOps = appCon.getSelectedOptions().getOptions();
+
+
+            for (Room room : appCon.getRegisteredRooms().getRooms()){
+                int i = 0;
+                if (room.getAvailableResources().size() > 0) {
+                    for (Option roomOp : room.getAvailableResources()){
+                        for (Option selOp : selOps){
+                            if (roomOp.getName().equals(selOp.getName()) && selOp.isState()){
+                                i++;
+                            }
                         }
                     }
-                }
-                if (i == selOpNum){
-                    roomList.add(room.roomToString());
+                    if (i == selOpNum){
+                        roomList.add(room.roomToString());
+                    }
                 }
             }
 
+        } else {
+            roomList.add("Bitte wähle entsprechende Parameter in den Suchoptionen aus.");
+            place_txt_1.setVisibility(View.GONE);
+            place_txt_2.setVisibility(View.GONE);
         }
 
         ArrayAdapter<String> roomAdapter = new ArrayAdapter<>
@@ -93,7 +100,9 @@ public class PlaceSearch extends AppCompatActivity {
                                     int position, long id) {
                 Object o = prefRooms.getItemAtPosition(position);
                 String str = (String) o;//As you are using Default String Adapter
-                Toast.makeText(getBaseContext(), str, Toast.LENGTH_SHORT).show();
+                Room room = appCon.getRegisteredRooms().getRoomByName(str).increaseVisitCount();
+                appCon.getSelectedOptions().setSelectedRoom(room);
+                startActivity(new Intent(PlaceSearch.this, RoomDescription.class));
             }
         });
 
